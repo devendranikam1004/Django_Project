@@ -1,0 +1,17 @@
+{% extends "polls/base.html" %}
+{% block title %}Add Question{% endblock %}
+{% block content %}
+<div class="d-flex flex-column flex-md-row p-4 py-md-2 align-items-center justify-content-center">
+    <form method="POST">
+        {% csrf_token %}
+        {{ question.question_text }}
+        <br>
+        {{ question.pub_date }}
+        <br>
+        <br>
+        <input type="submit" value="Submit" class='btn btn-success'>
+        <input type="reset" value="Reset" class='btn btn-warning'>
+    </form>
+</div>
+{% endblock %}
+ 

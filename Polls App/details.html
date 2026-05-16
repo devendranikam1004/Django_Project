@@ -1,0 +1,31 @@
+{% extends 'polls/base.html' %} {% block title %} Polls Details {% endblock %}
+{% block content %}
+<div class="d-flex flex-column flex-md-row p-4 py-md-2 align-items-center justify-content-center">
+    <div class="list-group list-group-checkable d-grid border-0">            
+        <label class="list-group-item rounded-3 py-3" for="listGroupCheckableRadios1">
+            <h3>{{ question.question_text }}</h3>
+            {% for ch in question.choice_set.all %}
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col">
+                        {{ch.choice_text}}
+                    </div>
+                    <div class="col">
+                        {{ch.votes}}
+                    </div>
+                </div>
+            </div>
+ 
+            {% endfor %}
+            <br>
+            <span class="d-block small opacity-50">{{ question.pub_date }}</span>
+            <br>
+            <a href="{% url 'polls:add_choice' question.id%}">
+            <span class="badge text-bg-success text-wrap">Add Choice</span>
+            </a>
+        </label>
+        
+    </div>
+</div>
+{% endblock %}
+ 
