@@ -1,0 +1,25 @@
+{% extends 'polls/base.html' %} {% block title %} Polls App {% endblock %}
+{% block content %}
+<h3 class="d-flex flex-column flex-md-row p-4 py-md-2 align-items-center justify-content-center">Question List:</h3>    
+{% for q in questions %}
+    <div class="d-flex flex-column flex-md-row p-4 py-md-2 align-items-center justify-content-center">
+        <div class="list-group list-group-checkable d-grid border-0">
+                  
+            <label class="list-group-item rounded-3 py-3" for="listGroupCheckableRadios1">
+                <a href="{% url 'polls:details' q.id %}">
+                    <h2>{{ q.question_text }}</h2>
+                </a>
+                <span class="d-block small opacity-50">{{ q.pub_date }}</span>
+                <a id="choice" href="#" class="modal-footer">
+                    <span class="badge text-bg-danger text-wrap"><i class="bi bi-trash"></i></span>
+                </a>
+            </label>        
+  </div>
+</div>
+{% endfor %}
+ 
+{% endblock %}
+ 
+ 
+ 
+    
